@@ -27,7 +27,7 @@ Add all content of package com.gds.extractor in your project
 
 For Android 6.+ for access contacts you need to ask runtime permission 
 
-        private boolean checkWriteContactsPermission() {
+    private boolean checkWriteContactsPermission() {
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             int writePermission = checkSelfPermission(Manifest.permission.WRITE_CONTACTS);
