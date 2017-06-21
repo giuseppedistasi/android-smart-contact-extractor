@@ -25,7 +25,7 @@ Edit Build.gradle adding the following dependencies
     
 Add all content of package com.gds.extractor in your project
 
-For Android 6.+ for access contacts you need to ask runtime permission 
+Beginning in Android 6.0 (API level 23) to access the contacts you need to ask runtime permission to the user 
 
      private boolean checkWriteContactsPermission() {
 
