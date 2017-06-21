@@ -2,9 +2,9 @@
 
 - A smart, fast and easy to use contact extractor for android 
 
-- Extracts user contact with a single instrucion in a very fast and optimized way
+- Extracts contacts with a single instruction in a very fast and optimized way
 
-- Works sync or async
+- Works sync or async (RxJava)
 
 # Usage
 
@@ -103,7 +103,7 @@ Invoke Extractor handling asynchronously response with rxJava
     }
 
 
-If you prefer you can also invoke Extractor synchronously (invoking extractor synchronously will freeze ui thread until task end)
+If you prefer you can also invoke Extractor synchronously (warning:extractor synchronously will freeze ui thread until task will be completed)
 
            ArrayList<Contact> allContacts = new ContactsExtractor(this).getAllContacts();
            
