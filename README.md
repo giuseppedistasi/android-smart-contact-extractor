@@ -1,6 +1,10 @@
 # android-smart-contact-extractor
 
-A smart, fast and easy to use contact extractor for android
+- A smart, fast and easy to use contact extractor for android 
+
+- Extracts user contact with a single instrucion in a very fast and optimized way
+
+- Works sync or async
 
 # Usage
 
@@ -44,7 +48,7 @@ For Android 6.+ you need to ask permission for access contacts runtime
         if (requestCode == PERMISSION_REQUEST_CONTACTS) {
             // Request for camera permission.
             if (grantResults.length == 2 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] ==           PackageManager.PERMISSION_GRANTED) {
-                // Permission has been granted. Start camera preview Activity.
+                // Permission has been granted.
                 Snackbar.make(v, "Read contacts permission was granted. Starting preview.",
                         Snackbar.LENGTH_SHORT)
                         .show();
