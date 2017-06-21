@@ -108,7 +108,12 @@ public class MainActivity extends AppCompatActivity {
                         Snackbar.LENGTH_SHORT)
                         .show();
                 startReadinContacts();
-
+            }
+            else {
+                // Permission request was denied.
+                Snackbar.make(v, "Read contacts permission request was denied.",
+                        Snackbar.LENGTH_SHORT)
+                        .show();
             }
         }
         else if (requestCode == REQUEST_WRITE_CONTACTS) {
