@@ -9,6 +9,7 @@
 # Usage
 
 Edit Manifest adding this line
+
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     
     #Add also this line only if you want to use the contact creator factory included in project
