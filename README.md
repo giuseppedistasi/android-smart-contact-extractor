@@ -21,7 +21,7 @@ Edit Build.gradle adding the following dependencies
     compile 'io.reactivex.rxjava2:rxjava:2.0.0'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.0'
     
-Import all content of package com.gds.extractor in your project
+Add all content of package com.gds.extractor in your project
 
 For Android 6.+ you need to ask permission for access contacts runtime
 
