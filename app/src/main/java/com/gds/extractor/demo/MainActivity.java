@@ -18,7 +18,7 @@ import android.widget.RelativeLayout;
 
 import com.gds.extractor.R;
 import com.gds.extractor.contacts.Contact;
-import com.gds.extractor.contacts.ContactsService;
+import com.gds.extractor.contacts.ContactsExtractor;
 import com.gds.extractor.contacts.ContactsFactory;
 import com.gds.extractor.utils.SchedulerProvider;
 
@@ -69,17 +69,18 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean checkPermission() {
 
-        int readPermission = checkSelfPermission(Manifest.permission.READ_CONTACTS);
-        int writePermission = checkSelfPermission(Manifest.permission.WRITE_CONTACTS);
+        int readPermission = 0;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            readPermission = checkSelfPermission(Manifest.permission.READ_CONTACTS);
 
-        if (readPermission != PackageManager.PERMISSION_GRANTED || writePermission != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.READ_CONTACTS, Manifest.permission.WRITE_CONTACTS}, PERMISSION_REQUEST_CONTACTS);
-            return false;
+            int writePermission = checkSelfPermission(Manifest.permission.WRITE_CONTACTS);
+
+            if (readPermission != PackageManager.PERMISSION_GRANTED || writePermission != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{Manifest.permission.READ_CONTACTS, Manifest.permission.WRITE_CONTACTS}, PERMISSION_REQUEST_CONTACTS);
+                return false;
+            }
+
         }
-/*        if (writePermission != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[] {Manifest.permission.WRITE_CONTACTS},PERMISSION_REQUEST_CONTACTS);
-            return false;
-        }*/
 
         return true;
     }
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == PERMISSION_REQUEST_CONTACTS) {
             // Request for camera permission.
             if (grantResults.length == 2 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
-                // Permission has been granted. Start camera preview Activity.
+                // Permission has been granted.
                 Snackbar.make(v, "Read contacts permission was granted. Starting preview.",
                         Snackbar.LENGTH_SHORT)
                         .show();
@@ -140,7 +141,9 @@ public class MainActivity extends AppCompatActivity {
 
         loadingSpinner.setVisibility(View.VISIBLE);
 
-        new ContactsService(this)
+        ArrayList<Contact> allContacts = new ContactsExtractor(this).getAllContacts();
+
+        new ContactsExtractor(this)
                 .getContactsAsync()
                 .observeOn(SchedulerProvider.ui())
                 .subscribeOn(SchedulerProvider.io())

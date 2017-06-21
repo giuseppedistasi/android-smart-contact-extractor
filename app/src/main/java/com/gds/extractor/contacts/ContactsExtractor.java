@@ -28,7 +28,7 @@ import static android.provider.ContactsContract.CommonDataKinds.Phone;
  * Created by Francesco in 20/10/16.
  */
 @SuppressWarnings("StringBufferReplaceableByString")
-public class ContactsService {
+public class ContactsExtractor {
 
     private final Logger logger = Logger.getIntance(getClass());
 
@@ -47,7 +47,7 @@ public class ContactsService {
 
     private long startTimestamp;
 
-    public ContactsService(Context context) {
+    public ContactsExtractor(Context context) {
         this.context = context;
         contentResolver = context.getContentResolver();
     }

@@ -54,7 +54,7 @@ public class ContactsFactory {
             ContactItem contactItem = new ContactItem(ContactItem.Type.PHONE, "", phoneNumber);
             c.addContactItem(contactItem);
 
-            new ContactsService(context).insertNewContact(c);
+            new ContactsExtractor(context).insertNewContact(c);
 
         }
 

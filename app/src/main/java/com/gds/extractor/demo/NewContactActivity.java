@@ -11,7 +11,7 @@ import android.widget.EditText;
 import com.gds.extractor.R;
 import com.gds.extractor.contacts.Contact;
 import com.gds.extractor.contacts.ContactItem;
-import com.gds.extractor.contacts.ContactsService;
+import com.gds.extractor.contacts.ContactsExtractor;
 
 public class NewContactActivity extends AppCompatActivity {
 
@@ -91,7 +91,7 @@ public class NewContactActivity extends AppCompatActivity {
                     newContact.addContactItem(new ContactItem(ContactItem.Type.PHONE, "HOME", etHomePhone.getText().toString()));
                 }
 
-                new ContactsService(NewContactActivity.this).insertNewContact(newContact);
+                new ContactsExtractor(NewContactActivity.this).insertNewContact(newContact);
 
                 Snackbar.make(v, getString(R.string.contact_created),
                         Snackbar.LENGTH_SHORT)
