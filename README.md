@@ -64,7 +64,12 @@ For Android 6.+ for access contacts you need to ask runtime permission
                         Snackbar.LENGTH_SHORT)
                         .show();
                 startReadinContacts();
-
+            }
+            else {
+                // Permission request was denied.
+                Snackbar.make(v, "Read contacts permission request was denied.",
+                        Snackbar.LENGTH_SHORT)
+                        .show();
             }
         }
         else if (requestCode == REQUEST_WRITE_CONTACTS) {
