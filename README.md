@@ -1,5 +1,7 @@
 # android-smart-contact-extractor
 
+# Features
+
 - A smart, fast and easy to use contact extractor for android 
 
 - Extracts contacts with a single instruction in a very fast and optimized way
