@@ -131,7 +131,7 @@ Invoke Extractor handling asynchronously response with rxJava
 
 If you prefer you can also invoke Extractor synchronously (warning:extractor synchronously will freeze ui thread until task will be completed)
 
-           ArrayList<Contact> allContacts = new ContactsExtractor(this).getAllContacts();
+     ArrayList<Contact> allContacts = new ContactsExtractor(this).getAllContacts();
            
            
          
