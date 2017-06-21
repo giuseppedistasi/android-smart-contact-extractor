@@ -8,9 +8,11 @@
 
 # Usage
 
-Edit Manifest adding this lines
+Edit Manifest adding this line
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    
+    #Add also this line only if you want to use the contact creator factory included in project
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
   
   
@@ -23,7 +25,7 @@ Edit Build.gradle adding the following dependencies
     
 Add all content of package com.gds.extractor in your project
 
-For Android 6.+ you need to ask permission for access contacts runtime
+For Android 6.+ for access contacts you need to ask runtime permission 
 
     private boolean checkPermission() {
 
